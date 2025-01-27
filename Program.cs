@@ -14,17 +14,22 @@ internal class Program
         Console.Write($"Hello {name}. You want to play game for which table? ");
         number = Convert.ToInt32(Console.ReadLine());
 
-        var multiple = 6; //TODO: Generate a random number between 1 to 12
-        Console.Write($"What is {number} X {multiple}? ");
-        var answer = Convert.ToInt32(Console.ReadLine());
+        Random random = new();
 
-        if (answer == (number * multiple))
+        for (int i = 0; i < 10; i++)
         {
-            Console.WriteLine("You are correct!");
-        }
-        else
-        {
-            Console.WriteLine("You are wrong :(");
+            var factor = random.Next(2, 13);
+            Console.WriteLine($"What is {number} X {factor}? ");
+            var answer = Convert.ToInt32(Console.ReadLine());
+
+            if (answer == (number * factor))
+            {
+                Console.WriteLine("Right!");
+            }
+            else
+            {
+                Console.WriteLine("Wrong :(");
+            }
         }
     }
 }
